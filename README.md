@@ -1,2 +1,2 @@
 # POVRaySublime
-Syntax highlighting for [POV-Ray](www.povray.org) scene description language.
+Syntax highlighting for [POV-Ray](http://www.povray.org) scene description language.
