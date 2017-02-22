@@ -18,6 +18,7 @@ contexts:
 
   expressions:
     - include: constants
+    - include: builtin_variables
 
   constants:
     - match: \b(false|true|no|yes|off|on|pi)\b
