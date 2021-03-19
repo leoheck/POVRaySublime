@@ -1,0 +1,70 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+# https://www.sublimetext.com/docs/3/scope_naming.html
+name: POVRay
+file_extensions:
+  - pov
+scope: source.povray
+
+contexts:
+  # The prototype context is prepended to all contexts but those setting
+  # meta_include_prototype: false.
+  prototype:
+    - include: comments
+
+  main:
+    # The main context is the initial starting point of our syntax.
+    # Include other contexts from here (or specify them directly).
+    - include: keywords
+    - include: numbers
+    - include: strings
+
+  keywords:
+    # Keywords are if, else for and while.
+    # Note that blackslashes don't need to be escaped within single quoted
+    # strings in YAML. When using single quoted strings, only single quotes
+    # need to be escaped: this is done by using two single quotes next to each
+    # other.
+    - match: '\b(rgb|union|texture|interior|radiosity|material|finish|pigment|mesh2|vertex_vectors|normal_vectors|face_indices|photons|clock|clock_delta|clock_on|initial_clock|final_clock|initial_frame|final_frame|frame_number|image_width|image_height)\b'
+      scope: keyword.control.povray
+
+    - match: '\b(global_settings|object|transmit|light_source|sphere|location|direction|up|right|left|angle|assumed_gamma|gradient|color_map|look_at|crand|plane|dispersion|dispersion_samples|fade_color|rgbf|fadmv|e_distance|Rad_Settings|sky|scale|camera|sky_sphere|color|translate|ambient|diffuse|reflection|specular|roughness|irid|ior|fade_distance|fade_power|caustics|thickness|turbulence|spotlight|point_at|radius|falloff|tightness|rotate|target|refraction)\b'
+      scope: entity.name.function
+
+    - match: '\#\b(version|include|default|declare)\b'
+      scope: entity.name.namespace.povray
+
+  numbers:
+    - match: '\b(-)?[0-9]?+[0-9.e-]*\b'
+      scope: constant.numeric.float.povray
+
+    - match: \b(false|true|no|yes|off|on|pi)\b
+      scope: constant.numeric.povray
+
+  strings:
+    # Strings begin and end with quotes, and use backslashes as an escape
+    # character.
+    - match: '"'
+      scope: punctuation.definition.string.begin.povray
+      push: inside_string
+
+
+  inside_string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.povray
+    # - match: '\.'
+      # scope: constant.character.escape.povray
+    - match: '"'
+      scope: punctuation.definition.string.end.povray
+      pop: true
+
+  comments:
+    # Comments begin with a '//' and finish at the end of the line.
+    - match: '//'
+      scope: punctuation.definition.comment.povray
+      push:
+        # This is an anonymous context push for brevity.
+        - meta_scope: comment.line.double-slash.povray
+        - match: $\n?
+          pop: true

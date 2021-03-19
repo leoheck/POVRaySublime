@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: POVRay
+file_extensions:
+  - pov
+scope: source.povray
+
+settings:
+  shellVariables:
+  - { name: TM_COMMENT_START, value: '// ' }
