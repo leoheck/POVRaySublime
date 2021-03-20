@@ -30,7 +30,7 @@ contexts:
       scope: keyword.control.povray
 
     - match: '\b(global_settings|object|transmit|light_source|sphere|location|direction|up|right|left|angle|assumed_gamma|gradient|color_map|look_at|crand|plane|dispersion|dispersion_samples|fade_color|rgbf|fadmv|e_distance|Rad_Settings|sky|scale|camera|sky_sphere|color|translate|ambient|diffuse|reflection|specular|roughness|irid|ior|fade_distance|fade_power|caustics|thickness|turbulence|spotlight|point_at|radius|falloff|tightness|rotate|target|refraction)\b'
-      scope: entity.name.function
+      scope: entity.name.function.povray
 
     - match: '\#\b(version|include|default|declare)\b'
       scope: entity.name.namespace.povray
