@@ -5,6 +5,7 @@
 name: POVRay
 file_extensions:
   - pov
+  - inc
 scope: source.povray
 
 contexts:
