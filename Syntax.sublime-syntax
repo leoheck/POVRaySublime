@@ -69,3 +69,11 @@ contexts:
         - meta_scope: comment.line.double-slash.povray
         - match: $\n?
           pop: true
+
+    # Block comments begin with /* and ends with */
+    - match: '\/\*'
+      scope: punctuation.definition.comment.povray
+      push:
+        - meta_scope: comment.block.povray
+        - match: '\*\/'
+          pop: true
