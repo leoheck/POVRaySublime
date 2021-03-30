@@ -27,10 +27,11 @@ contexts:
     # strings in YAML. When using single quoted strings, only single quotes
     # need to be escaped: this is done by using two single quotes next to each
     # other.
+
     - match: '\b(rgb|union|texture|interior|radiosity|material|finish|pigment|mesh2|vertex_vectors|normal_vectors|face_indices|photons|clock|clock_delta|clock_on|initial_clock|final_clock|initial_frame|final_frame|frame_number|image_width|image_height)\b'
       scope: keyword.control.povray
 
-    - match: '\b(global_settings|object|transmit|light_source|sphere|location|direction|up|right|left|angle|assumed_gamma|gradient|color_map|look_at|crand|plane|dispersion|dispersion_samples|fade_color|rgbf|fadmv|e_distance|Rad_Settings|sky|scale|camera|sky_sphere|color|translate|ambient|diffuse|reflection|specular|roughness|irid|ior|fade_distance|fade_power|caustics|thickness|turbulence|spotlight|point_at|radius|falloff|tightness|rotate|target|refraction)\b'
+    - match: '\b(global_settings|object|transmit|light_source|sphere|location|direction|up|right|left|angle|assumed_gamma|gradient|color_map|look_at|crand|plane|dispersion|dispersion_samples|fade_color|rgbf|fadmv|e_distance|Rad_Settings|sky|scale|camera|sky_sphere|color|translate|ambient|diffuse|reflection|specular|roughness|irid|ior|fade_distance|fade_power|caustics|thickness|turbulence|spotlight|point_at|radius|falloff|tightness|rotate|target|refraction|max_trace_level|count|autostop|jitter|media)\b'
       scope: entity.name.function.povray
 
     - match: '\#\b(version|include|default|declare)\b'
